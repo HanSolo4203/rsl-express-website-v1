@@ -1,36 +1,153 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RSL Express Website v1
 
-## Getting Started
+A modern, responsive website built with Next.js 14, TypeScript, Tailwind CSS, and shadcn/ui.
 
-First, run the development server:
+## 🚀 Tech Stack
+
+- **Framework**: Next.js 14 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4 with Typography plugin
+- **UI Components**: shadcn/ui
+- **Form Handling**: React Hook Form with Zod validation
+- **Database**: Supabase (PostgreSQL)
+- **Icons**: Lucide React
+- **Package Manager**: npm (with pnpm fallback support)
+
+## 📦 Included Components
+
+- Button
+- Card
+- Input
+- Textarea
+- Label
+- Badge
+- Navigation Menu
+- Sheet
+- Separator
+- Form
+- Sonner (Toast replacement)
+
+## 🛠️ Development Setup
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm or pnpm
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd rsl-express-website-v1
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+pnpm install
+```
+
+3. Set up environment variables:
+```bash
+cp .env.local.example .env.local
+# Edit .env.local with your actual values
+```
+
+### Running the Development Server
 
 ```bash
 npm run dev
 # or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+# or
+pnpm build
+pnpm start
+```
 
-## Learn More
+## 📁 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/                 # Next.js App Router pages
+│   ├── globals.css     # Global styles and Tailwind imports
+│   ├── layout.tsx      # Root layout component
+│   └── page.tsx        # Home page
+├── components/         # Reusable components
+│   └── ui/            # shadcn/ui components
+└── lib/               # Utility functions
+    └── utils.ts       # Common utilities (cn function, etc.)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Styling
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project uses Tailwind CSS v4 with:
+- Custom CSS variables for theming
+- Dark mode support
+- Typography plugin for rich text content
+- Responsive design utilities
 
-## Deploy on Vercel
+## 🔧 Available Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Build the application for production
+- `npm run start` - Start the production server
+- `npm run lint` - Run ESLint
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🌙 Dark Mode
+
+The project includes built-in dark mode support through CSS variables. The theme can be toggled using the `dark` class on the root element.
+
+## 📝 Environment Variables
+
+Copy `.env.local.example` to `.env.local` and configure:
+
+### Email Configuration
+- `RESEND_API_KEY` - API key for Resend email service (get from https://resend.com/api-keys)
+- `CONTACT_TO` - Email address for contact form submissions
+
+### Supabase Configuration
+- `SUPABASE_URL` - Your Supabase project URL
+- `SUPABASE_ANON_KEY` - Your Supabase anonymous key
+- `SUPABASE_SERVICE_ROLE_KEY` - Your Supabase service role key (optional, for server-side operations)
+
+#### Getting Supabase Keys:
+1. Go to [app.supabase.com](https://app.supabase.com)
+2. Create a new project or select an existing one
+3. Navigate to **Settings** → **API**
+4. Copy the following values:
+   - **Project URL** → `SUPABASE_URL`
+   - **anon public** key → `SUPABASE_ANON_KEY`
+   - **service_role** key → `SUPABASE_SERVICE_ROLE_KEY` (optional)
+
+#### Supabase Security Notes:
+- **For server-only inserts with full control**, set `SUPABASE_SERVICE_ROLE_KEY` (never expose to client)
+- **Otherwise**, with RLS policy configured, anon users can insert to `public.estimates`
+- The service role key bypasses Row Level Security (RLS) and should only be used server-side
+- Client-side operations use the anon key and respect RLS policies for security
+
+## 🚀 Deployment
+
+This project is ready to deploy on platforms like:
+- Vercel (recommended)
+- Netlify
+- AWS Amplify
+- Any Node.js hosting service
+
+## 📚 Learn More
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [shadcn/ui Documentation](https://ui.shadcn.com)
+- [React Hook Form Documentation](https://react-hook-form.com)
+- [Zod Documentation](https://zod.dev)
