@@ -16,7 +16,6 @@ import {
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { siteConfig } from "@/config/site"
 
 export default function AboutPage() {
@@ -369,7 +368,7 @@ export default function AboutPage() {
                     Our Hours
                   </CardTitle>
                   <CardDescription>
-                    When we're available to serve you
+                    When we&rsquo;re available to serve you
                   </CardDescription>
                 </CardHeader>
                 <CardContent>

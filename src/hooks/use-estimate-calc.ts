@@ -2,7 +2,7 @@
 
 import { useMemo, useCallback } from "react"
 import { PRICE_INDEX, ItemCode } from "@/config/prices"
-import { computeEstimate, EstimateInput, EstimateResult } from "@/lib/estimate"
+import { computeEstimate, EstimateResult } from "@/lib/estimate"
 
 export interface UseEstimateCalcInput {
   weeklyItems?: Record<string, number>
@@ -32,6 +32,19 @@ export interface UseEstimateCalcReturn {
  * Provides instant previews while maintaining consistency with server calculations
  */
 export function useEstimateCalc(input: UseEstimateCalcInput): UseEstimateCalcReturn {
+  // Filter weekly items to only include valid ItemCodes
+  const getValidWeeklyItems = useCallback((items: Record<string, number>): Partial<Record<ItemCode, number>> => {
+    const validItems: Partial<Record<ItemCode, number>> = {}
+    
+    for (const [key, value] of Object.entries(items)) {
+      if (typeof value === 'number' && value > 0 && key in PRICE_INDEX) {
+        validItems[key as ItemCode] = value
+      }
+    }
+    
+    return validItems
+  }, [])
+
   // Memoized estimate calculation using the same logic as server
   const estimate = useMemo(() => {
     try {
@@ -103,18 +116,6 @@ export function useEstimateCalc(input: UseEstimateCalcInput): UseEstimateCalcRet
     return +(kg * rate).toFixed(2)
   }, [])
 
-  // Filter weekly items to only include valid ItemCodes
-  const getValidWeeklyItems = useCallback((items: Record<string, number>): Partial<Record<ItemCode, number>> => {
-    const validItems: Partial<Record<ItemCode, number>> = {}
-    
-    for (const [key, value] of Object.entries(items)) {
-      if (typeof value === 'number' && value > 0 && isValidItemCode(key)) {
-        validItems[key] = value
-      }
-    }
-    
-    return validItems
-  }, [isValidItemCode])
 
   return {
     estimate,

@@ -12,8 +12,7 @@ import {
   ChevronRight,
   Loader2,
   RotateCcw,
-  Trash2,
-  Info
+  Trash2
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -37,7 +36,7 @@ import {
   FormMessage,
   FormDescription,
 } from "@/components/ui/form"
-import { PRICE_LIST, PER_KG, PRICE_VERSION, ItemCode, Category } from "@/config/prices"
+import { PRICE_LIST, PER_KG, Category } from "@/config/prices"
 import { computeEstimate, EstimateResult } from "@/lib/estimate"
 
 // Form validation schema
@@ -343,7 +342,7 @@ export function EstimateForm() {
                           key={option.value}
                           type="button"
                           variant={watchedValues.mode === option.value ? "default" : "outline"}
-                          onClick={() => form.setValue("mode", option.value as any)}
+                          onClick={() => form.setValue("mode", option.value as EstimateFormData['mode'])}
                           className="flex-1"
                         >
                           {option.label}
@@ -626,7 +625,7 @@ export function EstimateForm() {
                   <div className="space-y-2">
                     <div className="font-medium text-green-600">✓ Estimate Submitted</div>
                     <div className="text-sm text-muted-foreground">
-                      Your estimate has been saved and we'll be in touch soon.
+                      Your estimate has been saved and we&rsquo;ll be in touch soon.
                     </div>
                   </div>
                 </>

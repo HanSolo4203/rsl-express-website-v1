@@ -95,7 +95,7 @@ export async function POST(request: NextRequest) {
         { 
           ok: false, 
           error: 'Invalid request data',
-          details: error.issues.map((issue: any) => ({ 
+          details: error.issues.map((issue: z.ZodIssue) => ({ 
             field: issue.path.join('.'), 
             message: issue.message 
           }))
