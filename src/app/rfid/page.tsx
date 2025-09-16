@@ -136,25 +136,6 @@ export default function RFIDPage() {
         </div>
       </section>
 
-      {/* Intro Section */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <Reveal>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Our RFID Investment</h2>
-            </Reveal>
-            <Reveal delay={0.06}>
-              <p className="text-xl text-muted-foreground leading-relaxed">{siteConfig.rfid.statusNote}</p>
-            </Reveal>
-            <div className="mt-8">
-              <Badge variant="secondary" className="text-base px-4 py-2 bg-primary/10 text-primary">
-                Coming Soon - Trial Service Available Now
-              </Badge>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Benefits Grid Section */}
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
