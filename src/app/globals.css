@@ -119,4 +119,32 @@
   body {
     @apply bg-background text-foreground;
   }
+  /* Global fluid typography scale */
+  h1 {
+    font-size: clamp(2rem, 1.1rem + 3vw, 3.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+  }
+  h2 {
+    font-size: clamp(1.75rem, 1.1rem + 2vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: clamp(1.5rem, 1.05rem + 1.5vw, 2.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: clamp(1.25rem, 1.02rem + 1vw, 1.75rem);
+    line-height: 1.2;
+    font-weight: 600;
+  }
+  p {
+    font-size: clamp(1rem, 0.95rem + 0.5vw, 1.25rem);
+    line-height: 1.7;
+  }
 }
