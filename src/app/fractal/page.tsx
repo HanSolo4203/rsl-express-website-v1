@@ -16,11 +16,11 @@ export default function FractalDemoPage() {
     <LenisProvider>
       <main className="min-h-screen bg-white text-gray-900">
         {/* Hero (uses site home content) */}
-        <section className="py-20 md:py-32 bg-gradient-to-b from-background to-muted/20">
+        <section className="py-28 sm:py-36 bg-gradient-to-b from-background to-muted/20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center space-y-8">
               <motion.h1
-                className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight"
+                className="text-4xl md:text-6xl font-extrabold leading-[0.95] tracking-tight"
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -31,13 +31,13 @@ export default function FractalDemoPage() {
                 {siteConfig.description}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-                <Button asChild size="lg" className="text-lg px-8 py-6">
+                <Button asChild size="lg" className="text-lg px-8 py-6 bg-blue-600 hover:bg-blue-700">
                   <Link href="/contact">
                     {siteConfig.ctas.estimate}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6">
+                <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6 border-blue-200 text-blue-700 hover:bg-blue-50">
                   <Link href="/rfid">RFID Tracking (Coming Soon)</Link>
                 </Button>
               </div>
@@ -48,21 +48,22 @@ export default function FractalDemoPage() {
         <Separator />
 
         {/* Highlights (from home) */}
-        <section className="py-16 md:py-24">
+        <section className="py-28 sm:py-36">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <Reveal>
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why Choose RSL Express?</h2>
+                <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight leading-[0.98] mb-4">Why Choose RSL Express?</h2>
+                <div className="mx-auto h-1 w-16 rounded bg-blue-600/80" />
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Professional linen services designed specifically for the hospitality industry</p>
               </div>
             </Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {siteConfig.highlights.map((highlight, index) => (
                 <Reveal key={index} delay={index * 0.06}>
-                  <Card className="border-2 hover:border-primary/20 transition-colors">
+                  <Card className="rounded-2xl border border-gray-200 hover:border-blue-200 transition-colors shadow-sm hover:shadow-md">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
-                        <CheckCircle className="h-5 w-5 text-primary" />
+                        <CheckCircle className="h-5 w-5 text-blue-600" />
                         Service Excellence
                       </CardTitle>
                     </CardHeader>
@@ -79,11 +80,12 @@ export default function FractalDemoPage() {
         <Separator />
 
         {/* Service Overview */}
-        <section className="py-16 md:py-24 bg-muted/30">
+        <section className="py-28 sm:py-36 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <Reveal>
               <div className="max-w-4xl mx-auto text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Comprehensive Linen Services</h2>
+                <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight leading-[0.98] mb-4">Comprehensive Linen Services</h2>
+                <div className="mx-auto h-1 w-16 rounded bg-blue-600/80" />
                 <p className="text-xl text-muted-foreground leading-relaxed">
                   We specialize in hospitality-focused linen solutions with daily pickup and delivery. Our emergency service provides 4-hour notice turnaround when you need it most.
                 </p>
@@ -91,7 +93,7 @@ export default function FractalDemoPage() {
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Reveal>
-                <Card className="hover:shadow-lg transition-shadow">
+                <Card className="rounded-2xl border border-gray-200 hover:border-blue-200 transition-colors shadow-sm hover:shadow-md">
                   <CardHeader>
                     <CardTitle className="text-primary">Bed Linens</CardTitle>
                     <CardDescription>Professional care for all bedding essentials</CardDescription>
@@ -100,7 +102,7 @@ export default function FractalDemoPage() {
                     <ul className="space-y-2">
                       {siteConfig.service.categories.bed.map((item, index) => (
                         <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
                           {item}
                         </li>
                       ))}
@@ -110,7 +112,7 @@ export default function FractalDemoPage() {
               </Reveal>
 
               <Reveal delay={0.06}>
-                <Card className="hover:shadow-lg transition-shadow">
+                <Card className="rounded-2xl border border-gray-200 hover:border-blue-200 transition-colors shadow-sm hover:shadow-md">
                   <CardHeader>
                     <CardTitle className="text-primary">Bath Linens</CardTitle>
                     <CardDescription>Sanitized and fresh towels for your guests</CardDescription>
@@ -119,7 +121,7 @@ export default function FractalDemoPage() {
                     <ul className="space-y-2">
                       {siteConfig.service.categories.bath.map((item, index) => (
                         <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
                           {item}
                         </li>
                       ))}
@@ -129,7 +131,7 @@ export default function FractalDemoPage() {
               </Reveal>
 
               <Reveal delay={0.12}>
-                <Card className="hover:shadow-lg transition-shadow">
+                <Card className="rounded-2xl border border-gray-200 hover:border-blue-200 transition-colors shadow-sm hover:shadow-md">
                   <CardHeader>
                     <CardTitle className="text-primary">Table Linens</CardTitle>
                     <CardDescription>Spotless tablecloths and napkins for dining</CardDescription>
@@ -138,7 +140,7 @@ export default function FractalDemoPage() {
                     <ul className="space-y-2">
                       {siteConfig.service.categories.table.map((item, index) => (
                         <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
                           {item}
                         </li>
                       ))}
@@ -153,11 +155,12 @@ export default function FractalDemoPage() {
         <Separator />
 
         {/* Why Choose Us (Badges) */}
-        <section className="py-16 md:py-24">
+        <section className="py-28 sm:py-36">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <Reveal>
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Core Values</h2>
+                <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight leading-[0.98] mb-4">Our Core Values</h2>
+                <div className="mx-auto h-1 w-16 rounded bg-blue-600/80" />
                 <p className="text-xl text-muted-foreground">What sets us apart in the linen service industry</p>
               </div>
             </Reveal>
@@ -166,7 +169,7 @@ export default function FractalDemoPage() {
                 <Reveal key={value} delay={index * 0.06}>
                   <Badge
                     variant="secondary"
-                    className="text-base px-6 py-3 bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                    className="text-base px-6 py-3 bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
                   >
                     {value}
                   </Badge>
@@ -179,11 +182,12 @@ export default function FractalDemoPage() {
         <Separator />
 
         {/* Process Timeline */}
-        <section className="py-16 md:py-24 bg-muted/30">
+        <section className="py-28 sm:py-36 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <Reveal>
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our 24-Hour Process</h2>
+                <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight leading-[0.98] mb-4">Our 24-Hour Process</h2>
+                <div className="mx-auto h-1 w-16 rounded bg-blue-600/80" />
                 <p className="text-xl text-muted-foreground">From collection to delivery, we ensure quality every step of the way</p>
               </div>
             </Reveal>
@@ -199,10 +203,10 @@ export default function FractalDemoPage() {
                 const IconComponent = step.icon;
                 return (
                   <Reveal key={index} delay={index * 0.05}>
-                    <Card className="text-center hover:shadow-lg transition-shadow">
+                    <Card className="text-center rounded-2xl border border-gray-200 hover:border-blue-200 transition-colors shadow-sm hover:shadow-md">
                       <CardHeader>
-                        <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                          <IconComponent className="h-6 w-6 text-primary" />
+                        <div className="mx-auto w-12 h-12 bg-blue-600/10 rounded-full flex items-center justify-center mb-4">
+                          <IconComponent className="h-6 w-6 text-blue-600" />
                         </div>
                         <CardTitle className="text-lg">Step {step.step}: {step.title}</CardTitle>
                       </CardHeader>
@@ -218,16 +222,16 @@ export default function FractalDemoPage() {
         </section>
 
         {/* CTA Banner */}
-        <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+        <section className="py-28 sm:py-36 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <Reveal>
               <div className="max-w-4xl mx-auto text-center space-y-8">
                 <h2 className="text-3xl md:text-4xl font-bold">Ready to Switch?</h2>
-                <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto">
+                <p className="text-xl text-white/90 max-w-2xl mx-auto">
                   Join the hospitality businesses that trust RSL Express for their linen needs. Get started with a free estimate or trial service today.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-                  <Button asChild size="lg" variant="secondary" className="text-lg px-8 py-6">
+                  <Button asChild size="lg" variant="secondary" className="text-lg px-8 py-6 bg-white text-blue-700 hover:bg-blue-50">
                     <Link href="/contact">
                       {siteConfig.ctas.estimate}
                       <ArrowRight className="ml-2 h-5 w-5" />
@@ -237,7 +241,7 @@ export default function FractalDemoPage() {
                     asChild
                     size="lg"
                     variant="outline"
-                    className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                    className="text-lg px-8 py-6 border-white/60 text-white hover:bg-white/10"
                   >
                     <Link href="/contact">{siteConfig.ctas.trial}</Link>
                   </Button>
