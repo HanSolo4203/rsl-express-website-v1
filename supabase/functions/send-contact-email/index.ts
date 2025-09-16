@@ -1,10 +1,13 @@
-// @ts-ignore - Deno imports
+// @ts-expect-error - Deno imports
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
-// @ts-ignore - Deno imports  
+// @ts-expect-error - Deno imports  
 import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts"
 
-// @ts-ignore - Deno global
-declare const Deno: any
+declare const Deno: {
+  env: {
+    get(key: string): string | undefined;
+  };
+}
 
 interface CustomerData {
   full_name: string;
