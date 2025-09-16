@@ -16,7 +16,22 @@ export default function FractalDemoPage() {
     <LenisProvider>
       <main className="min-h-screen bg-white text-gray-900">
         {/* Hero (uses site home content) */}
-        <section className="relative min-h-[100svh] bg-gradient-to-b from-background to-muted/20 flex items-center">
+        <section className="relative min-h-[100svh] bg-gradient-to-b from-background to-muted/20 flex items-center overflow-hidden">
+          {/* Background video */}
+          <video
+            className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="/videos/particles-poster.jpg"
+          >
+            <source src="/videos/particles.webm" type="video/webm" />
+            <source src="/videos/particles.mp4" type="video/mp4" />
+          </video>
+          {/* Subtle overlay for contrast */}
+          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/60 via-white/40 to-white/70 dark:from-black/50 dark:via-black/40 dark:to-black/60" />
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center space-y-8">
               <motion.h1
