@@ -1,4 +1,6 @@
 import { Metadata } from "next"
+import { LenisProvider } from "@/components/lenis-provider"
+import Reveal from "@/components/reveal"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -13,17 +15,18 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
+    <LenisProvider>
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-              Get an Estimate
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Weekly linen volume input + instant rough quote from our 2025 price list.
-            </p>
+            <Reveal>
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground">Get an Estimate</h1>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <p className="text-xl text-muted-foreground leading-relaxed">Weekly linen volume input + instant rough quote from our 2025 price list.</p>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -147,5 +150,6 @@ export default function ContactPage() {
         </div>
       </section>
     </div>
+    </LenisProvider>
   )
 }

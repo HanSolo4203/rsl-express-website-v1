@@ -1,4 +1,6 @@
 import Link from "next/link"
+import { LenisProvider } from "@/components/lenis-provider"
+import Reveal from "@/components/reveal"
 import { 
   Radio, 
   BarChart3, 
@@ -92,6 +94,7 @@ export default function RFIDPage() {
   ]
 
   return (
+    <LenisProvider>
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-background to-muted/20">
@@ -104,12 +107,12 @@ export default function RFIDPage() {
                     <Radio className="h-10 w-10 text-primary" />
                   </div>
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-                  RFID Tracking System
-                </h1>
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  Revolutionary technology to enhance our linen service with complete transparency and control
-                </p>
+                <Reveal>
+                  <h1 className="text-4xl md:text-5xl font-bold text-foreground">RFID Tracking System</h1>
+                </Reveal>
+                <Reveal delay={0.06}>
+                  <p className="text-xl text-muted-foreground leading-relaxed">Revolutionary technology to enhance our linen service with complete transparency and control</p>
+                </Reveal>
               </div>
               <div className="flex justify-center">
                 <div className="relative w-full max-w-md">
@@ -137,12 +140,12 @@ export default function RFIDPage() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Our RFID Investment
-            </h2>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              {siteConfig.rfid.statusNote}
-            </p>
+            <Reveal>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Our RFID Investment</h2>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <p className="text-xl text-muted-foreground leading-relaxed">{siteConfig.rfid.statusNote}</p>
+            </Reveal>
             <div className="mt-8">
               <Badge variant="secondary" className="text-base px-4 py-2 bg-primary/10 text-primary">
                 Coming Soon - Trial Service Available Now
@@ -413,13 +416,12 @@ export default function RFIDPage() {
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl md:text-4xl font-bold">
-              Ready to Experience RFID Technology?
-            </h2>
-            <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto">
-              Be among the first to experience our revolutionary RFID tracking system. 
-              Schedule a trial service or get a free estimate for your business.
-            </p>
+            <Reveal>
+              <h2 className="text-3xl md:text-4xl font-bold">Ready to Experience RFID Technology?</h2>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto">Be among the first to experience our revolutionary RFID tracking system. Schedule a trial service or get a free estimate for your business.</p>
+            </Reveal>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
               <Button asChild size="lg" variant="secondary" className="text-lg px-8 py-6">
                 <Link href="/contact">
@@ -437,5 +439,6 @@ export default function RFIDPage() {
         </div>
       </section>
     </div>
+    </LenisProvider>
   )
 }

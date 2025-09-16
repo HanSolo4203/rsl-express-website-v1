@@ -23,7 +23,7 @@ export const siteConfig = {
       "Automated billing based on processed quantities",
     ],
     timeline: [
-      "Weeks 1–8: Software development & integration",
+      "Weeks 1–8: Software integration",
       "Weeks 6–8: Hardware installation prep",
       "Weeks 9–10: System testing & calibration",
       "Week 11: Staff training",
