@@ -58,7 +58,7 @@ export function SiteFooter() {
               <li>24-Hour Turnaround</li>
               <li>Daily Collection & Delivery</li>
               <li>Emergency Service</li>
-              <li>RFID Tracking (Coming Soon)</li>
+              <li>RFID Tracking </li>
             </ul>
           </div>
 

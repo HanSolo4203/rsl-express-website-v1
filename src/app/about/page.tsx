@@ -240,56 +240,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Our Team
-            </h2>
-            <p className="text-xl text-muted-foreground mb-12">
-              Led by experienced professionals dedicated to your success
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="mx-auto w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                    <Users className="h-10 w-10 text-primary" />
-                  </div>
-                  <CardTitle className="text-primary">Dylan Hayward</CardTitle>
-                  <CardDescription>Director</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    With years of experience in the hospitality industry, Dylan leads RSL Express 
-                    with a commitment to excellence and customer satisfaction. His vision drives 
-                    our innovative approach to linen services.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="mx-auto w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                    <Heart className="h-10 w-10 text-primary" />
-                  </div>
-                  <CardTitle className="text-primary">Dedicated Operations Team</CardTitle>
-                  <CardDescription>Professional Staff</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Our skilled team of laundry technicians, quality control inspectors, and 
-                    delivery professionals work together to ensure every piece of linen meets 
-                    our high standards.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Contact & Hours Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

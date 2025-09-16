@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "RSL Express",
   tagline: "Professional Linen Services with 24-Hour Turnaround",
-  description: "Commercial linen solutions for hospitality with guaranteed 24-hour turnaround and RFID tracking (coming soon).",
+  description: "Commercial linen solutions for hospitality with guaranteed 24-hour turnaround and RFID tracking system.",
   phone: "+27 834537517",
-  email: "dylan@rslexpress.com",
+  email: "admin@rslexpress.com",
   address: "Shop 10, WEX1, 85 Albert Road, Woodstock, Cape Town",
   hours: "Mon–Sun, 6:00 AM – 10:00 PM",
   highlights: [
@@ -58,6 +58,6 @@ export const siteConfig = {
   },
   seo: {
     defaultTitle: "RSL Express — Commercial Linen Services, 24-Hour Turnaround",
-    defaultDescription: "Hospitality linen washing, drying, pressing & packaging. Daily pickup/delivery and RFID tracking (coming soon).",
+    defaultDescription: "Hospitality linen washing, drying, pressing & packaging. Daily pickup/delivery and RFID tracking system.",
   },
 };

@@ -10,40 +10,42 @@ import { siteConfig } from "@/config/site";
 import { ArrowRight, CheckCircle, Package, Truck, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function FractalDemoPage() {
   return (
     <LenisProvider>
       <main className="min-h-screen bg-white text-gray-900">
         {/* Hero (uses site home content) */}
-        <section className="relative min-h-[100svh] bg-gradient-to-b from-background to-muted/20 flex items-center overflow-hidden">
+        <section className="relative min-h-[100vh] bg-gradient-to-b from-background to-muted/20 flex items-center overflow-hidden -mt-16 pt-16">
           {/* Background video */}
           <video
-            className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover"
+            className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover"
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
-            poster="/videos/particles-poster.jpg"
           >
-            <source src="/videos/particles.webm" type="video/webm" />
-            <source src="/videos/particles.mp4" type="video/mp4" />
+            <source src="/videos/rsl_intro2.mp4" type="video/mp4" />
           </video>
           {/* Subtle overlay for contrast */}
-          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/60 via-white/40 to-white/70 dark:from-black/50 dark:via-black/40 dark:to-black/60" />
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-white/20 via-white/10 to-white/30 dark:from-black/30 dark:via-black/20 dark:to-black/40" />
+          <div className="relative z-[2] container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center space-y-8">
-              <motion.h1
-                className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[0.95] tracking-tight"
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {siteConfig.tagline}
-              </motion.h1>
-              <p className="text-base sm:text-lg md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                {siteConfig.description}
+              <div className="flex justify-center -mt-8 sm:-mt-12 md:-mt-16">
+                <Image
+                  src="/logo.png?v=3"
+                  alt="RSL Express logo"
+                  width={800}
+                  height={160}
+                  priority
+                  className="w-auto h-auto max-h-96 md:max-h-[28rem] lg:max-h-[32rem] opacity-95 drop-shadow-[0_1px_6px_rgba(0,0,0,0.25)]"
+                />
+              </div>
+              {/* Tagline removed per request */}
+              <p className="text-base sm:text-lg md:text-2xl text-black max-w-3xl mx-auto leading-relaxed">
+                Commercial linen and RFID tracking technologies specialized for hospitality
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
                 <Button asChild size="lg" className="text-lg px-8 py-6 bg-blue-600 hover:bg-blue-700">
@@ -95,8 +97,21 @@ export default function FractalDemoPage() {
         <Separator />
 
         {/* Service Overview */}
-        <section className="py-24 sm:py-32 md:py-40 bg-muted/30">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative overflow-hidden py-24 sm:py-32 md:py-40 bg-muted/30">
+          {/* Background video for section */}
+          <video
+            className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          >
+            <source src="/videos/particles2.mp4" type="video/mp4" />
+          </video>
+          {/* Overlay to ensure text contrast */}
+          <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-white/20 via-white/10 to-white/30 dark:from-black/30 dark:via-black/20 dark:to-black/40" />
+          <div className="relative z-[2] container mx-auto px-4 sm:px-6 lg:px-8">
             <Reveal>
               <div className="max-w-4xl mx-auto text-center mb-12">
                 <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[0.98] mb-4">Comprehensive Linen Services</h2>

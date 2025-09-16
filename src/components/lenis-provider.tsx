@@ -14,7 +14,7 @@ export function LenisProvider({ children, options }: LenisProviderProps) {
     const lenis = new Lenis({
       duration: 1.2,
       smoothWheel: true,
-      smoothTouch: false,
+      // smoothTouch is not a supported option in current typings
       ...options,
     });
 
@@ -28,12 +28,11 @@ export function LenisProvider({ children, options }: LenisProviderProps) {
 
     return () => {
       cancelAnimationFrame(rafId);
-      // @ts-expect-error lenis has destroy at runtime
-      lenis?.destroy?.();
+      lenis.destroy();
     };
   }, [options]);
 
-  return children as JSX.Element;
+  return <>{children}</>;
 }
 
 export default LenisProvider;

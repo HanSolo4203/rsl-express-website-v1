@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Menu } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -29,15 +29,23 @@ const navigation = [
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className={`${scrolled ? "border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60" : "bg-transparent/0 border-b-0"} sticky top-0 z-50 w-full transition-colors duration-300`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
           <Link 
             href="/" 
-            className="text-xl font-bold text-foreground hover:text-primary transition-colors"
+            className={`text-xl font-bold transition-colors ${scrolled ? "text-foreground hover:text-primary" : "text-blue-600 hover:text-blue-700"}`}
             aria-label="RSL Express - Home"
           >
             {siteConfig.name}
@@ -50,7 +58,7 @@ export function SiteHeader() {
             {navigation.map((item) => (
               <NavigationMenuItem key={item.name}>
                 <NavigationMenuLink asChild>
-                  <Link href={item.href} className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
+                  <Link href={item.href} className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${scrolled ? "bg-transparent hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary data-[active]:bg-transparent data-[state=open]:bg-transparent text-foreground" : "bg-transparent text-blue-600 hover:text-blue-700"}`}>
                     {item.name}
                   </Link>
                 </NavigationMenuLink>
@@ -61,10 +69,8 @@ export function SiteHeader() {
 
         {/* Desktop CTA Button */}
         <div className="hidden md:flex items-center space-x-4">
-          <Button asChild>
-            <Link href="/contact">
-              Get an Estimate
-            </Link>
+          <Button asChild className={`${scrolled ? "" : "bg-transparent text-blue-600 border border-blue-600 hover:bg-blue-50"}`}>
+            <Link href="/contact">Get an Estimate</Link>
           </Button>
         </div>
 
@@ -72,7 +78,7 @@ export function SiteHeader() {
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label="Open menu">
+              <Button variant="ghost" size="icon" aria-label="Open menu" className={`${scrolled ? "text-foreground" : "text-blue-600"}`}>
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>

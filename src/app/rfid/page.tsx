@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { LenisProvider } from "@/components/lenis-provider"
 import Reveal from "@/components/reveal"
 import { 
@@ -13,7 +14,9 @@ import {
   ArrowRight,
   Clock,
   Calendar,
-  Zap
+  Zap,
+  Tag,
+  Lightbulb
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -62,71 +65,89 @@ export default function RFIDPage() {
 
   const timelineSteps = [
     {
-      week: "Weeks 1–8",
-      title: "Software Development",
-      description: "Software development & integration",
-      icon: Zap
+      week: "Week 1",
+      title: "Discovery & Planning",
+      description: "Site survey, data model, and integration plan finalized",
+      icon: Calendar,
     },
     {
-      week: "Weeks 6–8", 
-      title: "Hardware Installation",
-      description: "Hardware installation preparation",
-      icon: Radio
+      week: "Weeks 2–3",
+      title: "Hardware Prep & Provisioning",
+      description: "Tags, readers, gateways configured and staged",
+      icon: Radio,
     },
     {
-      week: "Weeks 9–10",
-      title: "System Testing",
-      description: "System testing & calibration",
-      icon: CheckCircle
+      week: "Weeks 3–5",
+      title: "Install & Configure",
+      description: "On-site install, network config, and system calibration",
+      icon: Zap,
     },
     {
-      week: "Week 11",
-      title: "Staff Training",
-      description: "Comprehensive staff training program",
-      icon: RefreshCw
+      week: "Weeks 5–6",
+      title: "Training & Go‑Live",
+      description: "Staff training, soft launch, performance checks",
+      icon: CheckCircle,
     },
-    {
-      week: "Week 12",
-      title: "Full Deployment",
-      description: "Complete system rollout and go-live",
-      icon: Calendar
-    }
   ]
 
   return (
     <LenisProvider>
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-background to-muted/20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden min-h-[100svh] py-16 md:py-24 bg-gradient-to-b from-background to-muted/20 flex items-center">
+        {/* Background video */}
+        <video
+          className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        >
+          <source src="/videos/particles3.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay for text contrast */}
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-white/20 via-white/10 to-white/30 dark:from-black/30 dark:via-black/20 dark:to-black/40" />
+        <div className="relative z-[2] container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="text-center lg:text-left space-y-6">
+              <div className="text-center lg:text-left space-y-6 -mt-14 md:-mt-20 lg:-mt-24">
                 <div className="flex justify-center lg:justify-start mb-6">
                   <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
-                    <Radio className="h-10 w-10 text-primary" />
+                    <Radio className="h-10 w-10 text-white" />
                   </div>
                 </div>
                 <Reveal>
-                  <h1 className="text-4xl md:text-5xl font-bold text-foreground">RFID Tracking System</h1>
+                  <h1 className="text-4xl md:text-5xl font-bold text-white">RFID Tracking System</h1>
                 </Reveal>
                 <Reveal delay={0.06}>
-                  <p className="text-xl text-muted-foreground leading-relaxed">Revolutionary technology to enhance our linen service with complete transparency and control</p>
+                  <p className="text-xl text-white leading-relaxed">Revolutionary technology to enhance our linen service with complete transparency and control</p>
                 </Reveal>
               </div>
               <div className="flex justify-center">
                 <div className="relative w-full max-w-md">
-                  <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center border-2 border-primary/20">
-                    <div className="text-center space-y-4">
-                      <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-                        <Radio className="h-12 w-12 text-primary" />
+                  <div className="group [perspective:1000px]">
+                    <div className="relative aspect-square rounded-2xl border-2 border-primary/20 bg-white/70 transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                      {/* Front */}
+                      <div className="absolute inset-0 flex items-center justify-center [backface-visibility:hidden]">
+                        <div className="text-center space-y-4">
+                          <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                            <Radio className="h-12 w-12 text-blue-600" />
+                          </div>
+                          <div className="space-y-2">
+                            <div className="w-16 h-2 bg-blue-300/60 rounded mx-auto"></div>
+                            <div className="w-12 h-2 bg-blue-300/40 rounded mx-auto"></div>
+                            <div className="w-8 h-2 bg-blue-300/30 rounded mx-auto"></div>
+                          </div>
+                          <p className="text-sm text-blue-600 font-medium">RFID Technology</p>
+                        </div>
                       </div>
-                      <div className="space-y-2">
-                        <div className="w-16 h-2 bg-primary/30 rounded mx-auto"></div>
-                        <div className="w-12 h-2 bg-primary/20 rounded mx-auto"></div>
-                        <div className="w-8 h-2 bg-primary/10 rounded mx-auto"></div>
+                      {/* Back */}
+                      <div className="absolute inset-0 flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                        <div className="text-center px-6">
+                          <Image src="/logo.png?v=3" alt="RSL Express" width={800} height={160} className="mx-auto h-auto w-auto max-h-20 md:max-h-24" />
+                        </div>
                       </div>
-                      <p className="text-sm text-primary/70 font-medium">RFID Technology</p>
                     </div>
                   </div>
                 </div>
@@ -140,6 +161,58 @@ export default function RFIDPage() {
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
+            {/* How RFID Works (horizontal) */}
+            <div className="mb-12">
+              <Card className="hover:shadow-lg transition-shadow h-fit">
+                <CardHeader>
+                  <CardTitle className="text-primary text-center">How Linen RFID Tracking Works</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+                    {/* 1. Tag Attachment */}
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <Tag className="h-8 w-8 text-primary" />
+                      </div>
+                      <p className="text-sm font-medium">Tag Attachment</p>
+                      <p className="text-xs text-muted-foreground mt-1">Each linen item gets a durable RFID tag sewn or attached securely</p>
+                    </div>
+                    {/* 2. Automatic Scanning */}
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <Radio className="h-8 w-8 text-primary" />
+                      </div>
+                      <p className="text-sm font-medium">Automatic Scanning</p>
+                      <p className="text-xs text-muted-foreground mt-1">RFID readers automatically detect tagged linens as they move through facilities</p>
+                    </div>
+                    {/* 3. Real-Time Tracking */}
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <RefreshCw className="h-8 w-8 text-primary" />
+                      </div>
+                      <p className="text-sm font-medium">Real-Time Tracking</p>
+                      <p className="text-xs text-muted-foreground mt-1">System tracks location, usage cycles, and wash history in real-time</p>
+                    </div>
+                    {/* 4. Data Collection */}
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <BarChart3 className="h-8 w-8 text-primary" />
+                      </div>
+                      <p className="text-sm font-medium">Data Collection</p>
+                      <p className="text-xs text-muted-foreground mt-1">Analytics capture inventory levels, utilization rates, and lifecycle data</p>
+                    </div>
+                    {/* 5. Smart Insights */}
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <Lightbulb className="h-8 w-8 text-primary" />
+                      </div>
+                      <p className="text-sm font-medium">Smart Insights</p>
+                      <p className="text-xs text-muted-foreground mt-1">Generate reports for inventory optimization, cost reduction, and efficiency</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 RFID System Benefits
@@ -149,78 +222,33 @@ export default function RFIDPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-              {/* Benefits Grid */}
-              <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
-                {siteConfig.rfid.benefits.map((benefit, index) => {
-                  const benefitData = benefits[index] || benefits[0]
-                  const IconComponent = benefitData.icon
-                  return (
-                    <Card key={index} className="hover:shadow-lg transition-shadow">
-                      <CardHeader>
-                        <div className="flex items-center gap-3 mb-2">
-                          <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                            <IconComponent className="h-5 w-5 text-primary" />
-                          </div>
-                          <CardTitle className="text-lg text-primary">
-                            {benefitData.title}
-                          </CardTitle>
+            {/* Benefits Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {siteConfig.rfid.benefits
+                .filter((b) => !/location/i.test(b))
+                .map((benefit, index) => {
+                const benefitData = benefits[index % benefits.length] || benefits[0]
+                const IconComponent = benefitData.icon
+                return (
+                  <Card key={index} className="hover:shadow-lg transition-shadow">
+                    <CardHeader>
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                          <IconComponent className="h-5 w-5 text-primary" />
                         </div>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-muted-foreground leading-relaxed">
-                          {benefit}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  )
-                })}
-              </div>
-              
-              {/* RFID Technology Visualization */}
-              <div className="lg:col-span-1">
-                <Card className="hover:shadow-lg transition-shadow h-fit">
-                  <CardHeader>
-                    <CardTitle className="text-primary text-center">How RFID Works</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div className="text-center">
-                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                          <Radio className="h-8 w-8 text-primary" />
-                        </div>
-                        <p className="text-sm text-muted-foreground">RFID Tags</p>
+                        <CardTitle className="text-lg text-primary">
+                          {benefitData.title}
+                        </CardTitle>
                       </div>
-                      
-                      <div className="flex justify-center">
-                        <div className="w-full h-0.5 bg-primary/20 relative">
-                          <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-primary rounded-full"></div>
-                        </div>
-                      </div>
-                      
-                      <div className="text-center">
-                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                          <Monitor className="h-8 w-8 text-primary" />
-                        </div>
-                        <p className="text-sm text-muted-foreground">Reader System</p>
-                      </div>
-                      
-                      <div className="flex justify-center">
-                        <div className="w-full h-0.5 bg-primary/20 relative">
-                          <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-primary rounded-full"></div>
-                        </div>
-                      </div>
-                      
-                      <div className="text-center">
-                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                          <BarChart3 className="h-8 w-8 text-primary" />
-                        </div>
-                        <p className="text-sm text-muted-foreground">Data Analytics</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {benefit}
+                      </p>
+                    </CardContent>
+                  </Card>
+                )
+              })}
             </div>
           </div>
         </div>
@@ -235,7 +263,7 @@ export default function RFIDPage() {
                 Implementation Timeline
               </h2>
               <p className="text-xl text-muted-foreground">
-                Our structured 12-week rollout plan for seamless integration
+                Our structured 6-week rollout plan for seamless integration
               </p>
             </div>
 
@@ -245,7 +273,7 @@ export default function RFIDPage() {
                 {/* Timeline Line */}
                 <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-primary/20 transform -translate-y-1/2"></div>
                 
-                <div className="grid grid-cols-5 gap-4 relative z-10">
+                <div className="grid grid-cols-4 gap-4 relative z-10">
                   {timelineSteps.map((step, index) => {
                     const IconComponent = step.icon
                     return (
@@ -308,91 +336,7 @@ export default function RFIDPage() {
           </div>
         </div>
       </section>
-
-      {/* Status Note Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div className="text-center lg:text-left">
-                <Card className="hover:shadow-lg transition-shadow border-2 border-primary/20">
-                  <CardHeader>
-                    <div className="mx-auto lg:mx-0 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                      <Clock className="h-8 w-8 text-primary" />
-                    </div>
-                    <CardTitle className="text-primary">Current Status</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                      {siteConfig.rfid.statusNote}
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                      <Badge variant="secondary" className="text-sm px-4 py-2 bg-green-100 text-green-700">
-                        Manual Tracking Active
-                      </Badge>
-                      <Badge variant="secondary" className="text-sm px-4 py-2 bg-blue-100 text-blue-700">
-                        Trial Service Available
-                      </Badge>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-              
-              {/* Dashboard Mockup */}
-              <div className="flex justify-center lg:justify-end">
-                <div className="relative w-full max-w-sm">
-                  <div className="bg-white rounded-2xl shadow-xl border-2 border-primary/20 overflow-hidden">
-                    <div className="bg-primary/10 p-4 border-b border-primary/20">
-                      <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                        <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                        <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                        <div className="ml-4 text-xs font-medium text-primary">RFID Dashboard</div>
-                      </div>
-                    </div>
-                    <div className="p-6 space-y-4">
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                          <Monitor className="h-6 w-6 text-primary" />
-                        </div>
-                        <p className="text-xs text-muted-foreground">Real-time Tracking</p>
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-xs">
-                          <span className="text-muted-foreground">Items Tracked</span>
-                          <span className="text-primary font-medium">1,247</span>
-                        </div>
-                        <div className="w-full bg-muted rounded-full h-2">
-                          <div className="bg-primary h-2 rounded-full w-3/4"></div>
-                        </div>
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-xs">
-                          <span className="text-muted-foreground">In Transit</span>
-                          <span className="text-primary font-medium">156</span>
-                        </div>
-                        <div className="w-full bg-muted rounded-full h-2">
-                          <div className="bg-green-500 h-2 rounded-full w-1/3"></div>
-                        </div>
-                      </div>
-                      
-                      <div className="pt-2 border-t border-muted">
-                        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
-                          <Radio className="h-3 w-3" />
-                          <span>RFID System Active</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
