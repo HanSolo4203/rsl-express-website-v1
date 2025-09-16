@@ -43,14 +43,30 @@ export default function AboutPage() {
     <LenisProvider>
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-background to-muted/20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-60"
+          >
+            <source src="/videos/particles4.mp4" type="video/mp4" />
+          </video>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/40"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <Reveal>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground">About RSL Express</h1>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">About RSL Express</h1>
             </Reveal>
             <Reveal delay={0.06}>
-              <p className="text-xl text-muted-foreground leading-relaxed">Your trusted partner in professional linen services for the hospitality industry</p>
+              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">Your trusted partner in professional linen services for the hospitality industry</p>
             </Reveal>
           </div>
         </div>

@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "std/": "https://deno.land/std@0.168.0/",
+    "denomailer": "https://deno.land/x/denomailer@1.6.0/mod.ts"
+  },
+  "compilerOptions": {
+    "allowJs": true,
+    "lib": ["deno.window"],
+    "strict": true
+  },
+  "lint": {
+    "include": ["functions/**/*.ts"],
+    "exclude": ["functions/**/*.test.ts"]
+  }
+}

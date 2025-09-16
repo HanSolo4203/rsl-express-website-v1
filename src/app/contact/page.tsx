@@ -4,7 +4,7 @@ import Reveal from "@/components/reveal"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { EstimateForm } from "@/components/estimate-form"
+import ContactForm from "@/components/contact-form"
 import { siteConfig } from "@/config/site"
 
 export const metadata: Metadata = {
@@ -35,9 +35,9 @@ export default function ContactPage() {
       <section className="py-16 md:py-24 flex-1">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Column - Estimate Form */}
+            {/* Left Column - Contact Form */}
             <div className="lg:col-span-2">
-              <EstimateForm />
+              <ContactForm />
             </div>
 
             {/* Right Column - Contact Information */}

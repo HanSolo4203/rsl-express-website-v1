@@ -110,16 +110,20 @@ The project includes built-in dark mode support through CSS variables. The theme
 
 ## 📝 Environment Variables
 
-Copy `.env.local.example` to `.env.local` and configure:
-
-### Email Configuration
-- `RESEND_API_KEY` - API key for Resend email service (get from https://resend.com/api-keys)
-- `CONTACT_TO` - Email address for contact form submissions
+Create a `.env.local` file in the root directory and configure:
 
 ### Supabase Configuration
-- `SUPABASE_URL` - Your Supabase project URL
-- `SUPABASE_ANON_KEY` - Your Supabase anonymous key
-- `SUPABASE_SERVICE_ROLE_KEY` - Your Supabase service role key (optional, for server-side operations)
+- `NEXT_PUBLIC_SUPABASE_URL` - Your Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` - Your Supabase anonymous key  
+- `SUPABASE_SERVICE_ROLE_KEY` - Your Supabase service role key (for server-side operations)
+
+### Email Configuration (for Contact Form)
+- `TITAN_EMAIL` - Your Titan email address (e.g., your-email@yourdomain.com)
+- `TITAN_PASSWORD` - Your Titan email password
+
+### Optional: Legacy Email Configuration
+- `RESEND_API_KEY` - API key for Resend email service (if using Resend instead)
+- `CONTACT_TO` - Email address for contact form submissions
 
 #### Getting Supabase Keys:
 1. Go to [app.supabase.com](https://app.supabase.com)
@@ -135,6 +139,25 @@ Copy `.env.local.example` to `.env.local` and configure:
 - **Otherwise**, with RLS policy configured, anon users can insert to `public.estimates`
 - The service role key bypasses Row Level Security (RLS) and should only be used server-side
 - Client-side operations use the anon key and respect RLS policies for security
+
+#### Email Setup (Contact Form):
+1. **Titan Email Setup:**
+   - Sign up for Titan Email hosting or use your existing Titan email
+   - Get your SMTP credentials from your Titan email provider
+   - Set `TITAN_EMAIL` to your email address
+   - Set `TITAN_PASSWORD` to your email password
+
+2. **Supabase Edge Function Setup:**
+   - Deploy the email function: `supabase functions deploy send-contact-email`
+   - Set environment variables in Supabase dashboard:
+     - Go to **Settings** → **Edge Functions**
+     - Add `TITAN_EMAIL` and `TITAN_PASSWORD` secrets
+
+3. **Database Setup:**
+   - Run the SQL migration to create the `contact_requests` table:
+   ```sql
+   -- See supabase/migrations/2025-01-15-contact-requests.sql
+   ```
 
 ## 🚀 Deployment
 

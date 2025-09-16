@@ -345,16 +345,10 @@ export default function RFIDPage() {
               <h2 className="text-3xl md:text-4xl font-bold">Ready to Experience RFID Technology?</h2>
             </Reveal>
             <Reveal delay={0.06}>
-              <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto">Be among the first to experience our revolutionary RFID tracking system. Schedule a trial service or get a free estimate for your business.</p>
+              <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto">Be among the first to experience our revolutionary RFID tracking system.</p>
             </Reveal>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-              <Button asChild size="lg" variant="secondary" className="text-lg px-8 py-6">
-                <Link href="/contact">
-                  {siteConfig.ctas.trial}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+              <Button asChild size="lg" variant="outline" className="text-lg px-8 py-6 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
                 <Link href="/contact">
                   {siteConfig.ctas.estimate}
                 </Link>

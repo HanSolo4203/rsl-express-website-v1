@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/config/site";
-import { ArrowRight, CheckCircle, Package, Truck, Zap } from "lucide-react";
+import { ArrowRight, CheckCircle, Package, Truck, Zap, Clock, CalendarDays, AlertTriangle, Sparkles, WashingMachine, Radio, Route, Receipt, Shield, Leaf } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -49,8 +49,8 @@ export default function FractalDemoPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
                 <Button asChild size="lg" className="text-lg px-8 py-6 bg-blue-600 hover:bg-blue-700">
-                  <Link href="/contact">
-                    {siteConfig.ctas.estimate}
+                  <Link href="/rfid">
+                    Explore RFID Tracking
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -62,7 +62,7 @@ export default function FractalDemoPage() {
         <Separator />
 
         {/* Highlights (from home) */}
-        <section className="py-24 sm:py-32 md:py-40">
+        <section className="pt-12 pb-24 sm:pt-16 sm:pb-32 md:pt-20 md:pb-40">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <Reveal>
               <div className="text-center mb-12">
@@ -71,22 +71,56 @@ export default function FractalDemoPage() {
                 <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">Professional linen services designed specifically for the hospitality industry</p>
               </div>
             </Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
-              {siteConfig.highlights.map((highlight, index) => (
-                <Reveal key={index} delay={index * 0.06}>
-                  <Card className="rounded-2xl border border-gray-200 hover:border-blue-200 transition-colors shadow-sm hover:shadow-md">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
-                        <CheckCircle className="h-5 w-5 text-blue-600" />
-                        Service Excellence
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="pb-6 sm:pb-8">
-                      <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">{highlight}</p>
-                    </CardContent>
-                  </Card>
-                </Reveal>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
+              {[
+                {
+                  title: "Professional Linen Processing",
+                  description: "State-of-the-art facilities with advanced washing, sanitizing, and finishing equipment ensuring hospital-grade cleanliness and quality",
+                  Icon: WashingMachine,
+                },
+                {
+                  title: "RFID Linen Tracking System",
+                  description: "Advanced RFID technology provides real-time inventory tracking, reduces losses, and optimizes linen circulation with detailed analytics",
+                  Icon: Radio,
+                },
+                {
+                  title: "Reliable Delivery Network",
+                  description: "Extensive logistics network ensuring on-time deliveries with flexible scheduling and route optimization across all service areas",
+                  Icon: Route,
+                },
+                {
+                  title: "Cost-Effective Solutions",
+                  description: "Competitive pricing with transparent billing and customized packages that reduce operational costs significantly",
+                  Icon: Receipt,
+                },
+                {
+                  title: "Quality Assurance",
+                  description: "Rigorous quality control processes, certified hygiene standards, and 100% satisfaction guarantee on all linen services",
+                  Icon: Shield,
+                },
+                {
+                  title: "Eco-Friendly Operations",
+                  description: "Environmentally responsible practices including water conservation, energy-efficient processes, and sustainable chemical usage",
+                  Icon: Leaf,
+                },
+              ].map((feature, index) => {
+                const IconComp = feature.Icon;
+                return (
+                  <Reveal key={index} delay={index * 0.06}>
+                    <Card className="h-full rounded-2xl border border-gray-200 hover:border-blue-200 transition-colors shadow-sm hover:shadow-md flex flex-col">
+                      <CardHeader className="flex-shrink-0">
+                        <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
+                          <IconComp className="h-5 w-5 text-blue-600" />
+                          {feature.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="flex-1 pb-6 sm:pb-8 flex flex-col justify-center">
+                        <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">{feature.description}</p>
+                      </CardContent>
+                    </Card>
+                  </Reveal>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -94,7 +128,7 @@ export default function FractalDemoPage() {
         <Separator />
 
         {/* Service Overview */}
-        <section className="relative overflow-hidden py-24 sm:py-32 md:py-40 bg-muted/30">
+        <section className="relative overflow-hidden pt-12 pb-24 sm:pt-16 sm:pb-32 md:pt-20 md:pb-40 bg-muted/30">
           {/* Background video for section */}
           <video
             className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover"
@@ -114,18 +148,18 @@ export default function FractalDemoPage() {
                 <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-[0.98] mb-4">Comprehensive Linen Services</h2>
                 <div className="mx-auto h-1 w-16 rounded bg-blue-600/80" />
                 <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
-                  We specialize in hospitality-focused linen solutions with daily pickup and delivery. Our emergency service provides 4-hour notice turnaround when you need it most.
+                  We specialize in hospitality-focused linen solutions with daily pickup and delivery.
                 </p>
               </div>
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               <Reveal>
-                <Card className="rounded-2xl border border-gray-200 hover:border-blue-200 transition-colors shadow-sm hover:shadow-md">
-                  <CardHeader>
+                <Card className="h-full rounded-2xl border border-gray-200 hover:border-blue-200 transition-colors shadow-sm hover:shadow-md flex flex-col">
+                  <CardHeader className="flex-shrink-0">
                     <CardTitle className="text-primary text-lg sm:text-xl">Bed Linens</CardTitle>
                     <CardDescription className="text-sm sm:text-base">Professional care for all bedding essentials</CardDescription>
                   </CardHeader>
-                  <CardContent className="pb-6 sm:pb-8">
+                  <CardContent className="flex-1 pb-6 sm:pb-8">
                     <ul className="space-y-2">
                       {siteConfig.service.categories.bed.map((item, index) => (
                         <li key={index} className="flex items-start gap-2 text-sm sm:text-base text-muted-foreground">
@@ -139,12 +173,12 @@ export default function FractalDemoPage() {
               </Reveal>
 
               <Reveal delay={0.06}>
-                <Card className="rounded-2xl border border-gray-200 hover:border-blue-200 transition-colors shadow-sm hover:shadow-md">
-                  <CardHeader>
+                <Card className="h-full rounded-2xl border border-gray-200 hover:border-blue-200 transition-colors shadow-sm hover:shadow-md flex flex-col">
+                  <CardHeader className="flex-shrink-0">
                     <CardTitle className="text-primary text-lg sm:text-xl">Bath Linens</CardTitle>
                     <CardDescription className="text-sm sm:text-base">Sanitized and fresh towels for your guests</CardDescription>
                   </CardHeader>
-                  <CardContent className="pb-6 sm:pb-8">
+                  <CardContent className="flex-1 pb-6 sm:pb-8">
                     <ul className="space-y-2">
                       {siteConfig.service.categories.bath.map((item, index) => (
                         <li key={index} className="flex items-start gap-2 text-sm sm:text-base text-muted-foreground">
@@ -158,12 +192,12 @@ export default function FractalDemoPage() {
               </Reveal>
 
               <Reveal delay={0.12}>
-                <Card className="rounded-2xl border border-gray-200 hover:border-blue-200 transition-colors shadow-sm hover:shadow-md">
-                  <CardHeader>
+                <Card className="h-full rounded-2xl border border-gray-200 hover:border-blue-200 transition-colors shadow-sm hover:shadow-md flex flex-col">
+                  <CardHeader className="flex-shrink-0">
                     <CardTitle className="text-primary text-lg sm:text-xl">Table Linens</CardTitle>
                     <CardDescription className="text-sm sm:text-base">Spotless tablecloths and napkins for dining</CardDescription>
                   </CardHeader>
-                  <CardContent className="pb-6 sm:pb-8">
+                  <CardContent className="flex-1 pb-6 sm:pb-8">
                     <ul className="space-y-2">
                       {siteConfig.service.categories.table.map((item, index) => (
                         <li key={index} className="flex items-start gap-2 text-sm sm:text-base text-muted-foreground">
@@ -182,11 +216,11 @@ export default function FractalDemoPage() {
         <Separator />
 
         {/* Process Timeline */}
-        <section className="py-24 sm:py-32 md:py-40 bg-muted/30">
+        <section className="pt-12 pb-24 sm:pt-16 sm:pb-32 md:pt-20 md:pb-40 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <Reveal>
               <div className="text-center mb-12">
-                <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[0.98] mb-4">Our 24-Hour Process</h2>
+                <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[0.98] mb-4">Lightning-Speed Workflow</h2>
                 <div className="mx-auto h-1 w-16 rounded bg-blue-600/80" />
                 <p className="text-base sm:text-lg md:text-xl text-muted-foreground">From collection to delivery, we ensure quality every step of the way</p>
               </div>
@@ -222,8 +256,21 @@ export default function FractalDemoPage() {
         </section>
 
         {/* CTA Banner */}
-        <section className="py-24 sm:py-32 md:py-40 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative overflow-hidden pt-12 pb-24 sm:pt-16 sm:pb-32 md:pt-20 md:pb-40 bg-gradient-to-b from-blue-600 to-blue-700 text-white">
+          {/* Background video */}
+          <video
+            className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          >
+            <source src="/videos/particles2.mp4" type="video/mp4" />
+          </video>
+          {/* Overlay to ensure text contrast */}
+          <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-blue-600/80 via-blue-700/70 to-blue-800/80" />
+          <div className="relative z-[2] container mx-auto px-4 sm:px-6 lg:px-8">
             <Reveal>
               <div className="max-w-4xl mx-auto text-center space-y-8">
                 <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold">Ready to Switch?</h2>

@@ -24,7 +24,6 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "RFID", href: "/rfid" },
-  { name: "Get Estimate", href: "/contact" },
 ]
 
 export function SiteHeader() {
