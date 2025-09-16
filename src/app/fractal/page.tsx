@@ -44,7 +44,7 @@ export default function FractalDemoPage() {
                 />
               </div>
               {/* Tagline removed per request */}
-              <p className="text-base sm:text-lg md:text-2xl text-black max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
                 Commercial linen and RFID tracking technologies specialized for hospitality
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
@@ -53,9 +53,6 @@ export default function FractalDemoPage() {
                     {siteConfig.ctas.estimate}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6 border-blue-200 text-blue-700 hover:bg-blue-50">
-                  <Link href="/rfid">RFID Tracking (Coming Soon)</Link>
                 </Button>
               </div>
             </div>
@@ -114,9 +111,9 @@ export default function FractalDemoPage() {
           <div className="relative z-[2] container mx-auto px-4 sm:px-6 lg:px-8">
             <Reveal>
               <div className="max-w-4xl mx-auto text-center mb-12">
-                <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[0.98] mb-4">Comprehensive Linen Services</h2>
+                <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-[0.98] mb-4">Comprehensive Linen Services</h2>
                 <div className="mx-auto h-1 w-16 rounded bg-blue-600/80" />
-                <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
                   We specialize in hospitality-focused linen solutions with daily pickup and delivery. Our emergency service provides 4-hour notice turnaround when you need it most.
                 </p>
               </div>
@@ -184,33 +181,6 @@ export default function FractalDemoPage() {
 
         <Separator />
 
-        {/* Why Choose Us (Badges) */}
-        <section className="py-24 sm:py-32 md:py-40">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <Reveal>
-              <div className="text-center mb-12">
-                <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[0.98] mb-4">Our Core Values</h2>
-                <div className="mx-auto h-1 w-16 rounded bg-blue-600/80" />
-                <p className="text-base sm:text-lg md:text-xl text-muted-foreground">What sets us apart in the linen service industry</p>
-              </div>
-            </Reveal>
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 max-w-4xl mx-auto">
-              {["Reliability", "Quality", "Convenience", "Flexibility", "Professional Image"].map((value, index) => (
-                <Reveal key={value} delay={index * 0.06}>
-                  <Badge
-                    variant="secondary"
-                    className="text-sm sm:text-base px-4 sm:px-6 py-2.5 sm:py-3 bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
-                  >
-                    {value}
-                  </Badge>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <Separator />
-
         {/* Process Timeline */}
         <section className="py-24 sm:py-32 md:py-40 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -266,14 +236,6 @@ export default function FractalDemoPage() {
                       {siteConfig.ctas.estimate}
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
-                  </Button>
-                  <Button
-                    asChild
-                    size="lg"
-                    variant="outline"
-                    className="text-lg px-8 py-6 border-white/60 text-white hover:bg-white/10"
-                  >
-                    <Link href="/contact">{siteConfig.ctas.trial}</Link>
                   </Button>
                 </div>
               </div>

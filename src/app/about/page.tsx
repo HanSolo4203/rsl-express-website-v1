@@ -203,43 +203,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Our Values
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                What drives us to deliver exceptional service every day
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {values.map((value, index) => {
-                const IconComponent = value.icon
-                return (
-                  <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                        <IconComponent className="h-8 w-8 text-primary" />
-                      </div>
-                      <CardTitle className="text-primary">{value.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {value.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                )
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
       {/* Contact & Hours Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
