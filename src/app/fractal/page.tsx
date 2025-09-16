@@ -27,11 +27,16 @@ export default function FractalDemoPage() {
           >
             <source src="/videos/rsl_intro2.mp4" type="video/mp4" />
           </video>
-          {/* Subtle overlay for contrast */}
-          <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-white/20 via-white/10 to-white/30 dark:from-black/30 dark:via-black/20 dark:to-black/40" />
+          {/* Black overlay for better text contrast */}
+          <div 
+            className="pointer-events-none absolute inset-0 z-[1] bg-black/45 opacity-0 animate-fade-in-overlay"
+            style={{
+              animation: 'fadeInOverlay 15s ease-in-out infinite'
+            }}
+          />
           <div className="relative z-[2] container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center space-y-8">
-              <div className="flex justify-center -mt-8 sm:-mt-12 md:-mt-16">
+              <div className="flex justify-center -mt-24 sm:-mt-28 md:-mt-32">
                 <Image
                   src="/logo.png?v=3"
                   alt="RSL Express logo"
@@ -42,7 +47,7 @@ export default function FractalDemoPage() {
                 />
               </div>
               {/* Tagline removed per request */}
-              <p className="text-base sm:text-lg md:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg md:text-2xl text-white max-w-3xl mx-auto leading-relaxed -mt-8">
                 Commercial linen and RFID tracking technologies specialized for hospitality
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">

@@ -150,3 +150,19 @@
     line-height: 1.7;
   }
 }
+
+/* Custom animation for overlay fade-in and fade-out */
+@keyframes fadeInOverlay {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
