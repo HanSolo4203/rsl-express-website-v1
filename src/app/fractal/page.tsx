@@ -16,7 +16,7 @@ export default function FractalDemoPage() {
     <LenisProvider>
       <main className="min-h-screen bg-white text-gray-900">
         {/* Hero (uses site home content) */}
-        <section className="py-24 sm:py-32 md:py-40 bg-gradient-to-b from-background to-muted/20">
+        <section className="relative min-h-[100svh] bg-gradient-to-b from-background to-muted/20 flex items-center">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center space-y-8">
               <motion.h1
