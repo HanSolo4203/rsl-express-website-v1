@@ -5,15 +5,12 @@ import {
   Users, 
   Wrench, 
   Shield, 
-  Leaf, 
-  DollarSign, 
   MapPin, 
   Phone, 
   Mail, 
   Clock,
   CheckCircle,
-  Award,
-  Heart
+  Award
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -21,23 +18,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { siteConfig } from "@/config/site"
 
 export default function AboutPage() {
-  const values = [
-    {
-      icon: MapPin,
-      title: "Local Service",
-      description: "Based in Cape Town, we understand the unique needs of local hospitality businesses and provide personalized service."
-    },
-    {
-      icon: Leaf,
-      title: "Eco-Conscious Handling",
-      description: "We use environmentally friendly detergents and energy-efficient equipment to minimize our environmental impact."
-    },
-    {
-      icon: DollarSign,
-      title: "Transparent Pricing",
-      description: "No hidden fees or surprise charges. Clear, upfront pricing with detailed billing for complete transparency."
-    }
-  ]
 
   return (
     <LenisProvider>

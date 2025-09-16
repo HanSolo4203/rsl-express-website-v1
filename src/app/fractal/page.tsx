@@ -3,12 +3,10 @@
 import { LenisProvider } from "@/components/lenis-provider";
 import Reveal from "@/components/reveal";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/config/site";
-import { ArrowRight, CheckCircle, Package, Truck, Zap, Clock, CalendarDays, AlertTriangle, Sparkles, WashingMachine, Radio, Route, Receipt, Shield, Leaf } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowRight, CheckCircle, Package, Truck, Zap, WashingMachine, Radio, Route, Receipt, Shield, Leaf } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 

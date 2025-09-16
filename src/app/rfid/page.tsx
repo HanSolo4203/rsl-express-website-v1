@@ -11,8 +11,6 @@ import {
   AlertTriangle, 
   Calculator,
   CheckCircle,
-  ArrowRight,
-  Clock,
   Calendar,
   Zap,
   Tag,

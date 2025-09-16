@@ -65,7 +65,7 @@ export function useEstimateCalc(input: UseEstimateCalcInput): UseEstimateCalcRet
         pricingVersion: "2025-pricelist",
       }
     }
-  }, [input.weeklyItems, input.bulkByKg, input.mode])
+  }, [input.weeklyItems, input.bulkByKg, input.mode, getValidWeeklyItems])
 
   // Validation helper to check if a code is a valid ItemCode
   const isValidItemCode = useCallback((code: string): code is ItemCode => {

@@ -185,7 +185,7 @@ export default function ContactForm() {
             <div className="space-y-2">
               <h3 className="text-2xl font-bold text-gray-900">Thank You!</h3>
               <p className="text-gray-600 max-w-md">
-                Your quote request has been submitted successfully. We'll get back to you within 24 hours with your custom quote.
+                Your quote request has been submitted successfully. We&apos;ll get back to you within 24 hours with your custom quote.
               </p>
             </div>
             <Button onClick={resetForm} variant="outline" className="mt-4">
@@ -204,7 +204,7 @@ export default function ContactForm() {
           Get Your Custom Quote
         </CardTitle>
         <CardDescription className="text-lg text-gray-600">
-          Fill out the form below and we'll get back to you within 24 hours
+          Fill out the form below and we&apos;ll get back to you within 24 hours
         </CardDescription>
       </CardHeader>
       
