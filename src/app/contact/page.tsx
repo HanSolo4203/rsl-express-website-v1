@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import { LenisProvider } from "@/components/lenis-provider"
 import Reveal from "@/components/reveal"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import Image from "next/image"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import ContactForm from "@/components/contact-form"
@@ -34,14 +35,14 @@ export default function ContactPage() {
       {/* Main Content */}
       <section className="py-16 md:py-24 flex-1">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Column - Contact Form */}
-            <div className="lg:col-span-2">
+            <div>
               <ContactForm />
             </div>
 
             {/* Right Column - Contact Information */}
-            <div className="lg:col-span-1 space-y-6">
+            <div>
               {/* Contact Card */}
               <Card className="sticky top-4">
                 <CardHeader>
@@ -100,48 +101,16 @@ export default function ContactPage() {
                       </p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
 
-              {/* Service Information Card */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>Service Details</CardTitle>
-                  <CardDescription>
-                    Our commitment to you
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    We collect at 11:00 and deliver by 11:00 the next day — 24-hour guaranteed 
-                    turnaround, 7 days a week. Emergency 4-hour service available.
-                  </p>
-                </CardContent>
-              </Card>
-
-              {/* Additional Information */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>Why Choose RSL Express?</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="text-sm font-medium">24-hour guaranteed turnaround</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="text-sm font-medium">Daily service Monday through Sunday</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="text-sm font-medium">Emergency service available</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="text-sm font-medium">Professional quality standards</span>
-                    </div>
+                  {/* RSL Express Logo */}
+                  <div className="flex justify-center pt-4">
+                    <Image
+                      src="/logo.png?v=3"
+                      alt="RSL Express logo"
+                      width={250}
+                      height={50}
+                      className="w-auto h-auto max-w-full opacity-90"
+                    />
                   </div>
                 </CardContent>
               </Card>
